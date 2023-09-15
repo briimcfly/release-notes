@@ -10,6 +10,10 @@ Comment.belongsTo(User, {foreignKey: 'user_id'});
 Post.hasMany(Comment, {foreignKey: 'post_id', as: 'comments'});
 Comment.belongsTo(Post, {foreignKey: 'post_id'});
 
+//A User can have many posts
+User.hasMany(Post, {foreignKey: 'user_id', as: 'posts'});
+Post.belongsTo(User, {foreignKey: 'user_id'});
+
 
 module.exports = {
     User,
