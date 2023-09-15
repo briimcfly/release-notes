@@ -2,9 +2,18 @@
 <section class="section">
   <h1 class="title">{{post.title}}</h1>
   <p class="subtitle">
-    By: {{post.user_id}}
+    <i class="fa-solid fa-circle-user"></i> {{post.user.username}}
   </p>
   <p>{{post.content}}</p>
- 
 </section>
+ {{#each comments as |comment|}}
+ <div class="card">
+  <div class="card-content">
+    <div class="content">
+     {{comment.text}}  
+     <p> <i class="fa-solid fa-circle-user"></i>  {{comment.user.username}}</p>  
+    </div>
+  </div>
+</div>
+ {{/each}}
 {{/each}}
