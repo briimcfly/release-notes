@@ -17,9 +17,9 @@
     <div class ="navbar-end">
     <div class="navbar-item">
       {{#if loggedIn}}
-      <h2 id="login-out">Logout</h2>
+      <a href="/login">Logout</a>
     {{else}}
-      <h2 id="login-out"><a href="/login">Login</a></h2>
+      <a href="/login">Login</a>
     {{/if}}
     </div>
     </div>
@@ -31,5 +31,5 @@
       
   </footer>
 </body>
-
+<script src ="/js/logout.js"></script>
 </html>

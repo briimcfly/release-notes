@@ -1,6 +1,5 @@
 //User Login 
 const loginHandler = async (event) => {
-    console.log('Login button was clicked');
     event.preventDefault();
 
     //Get Input Values 
