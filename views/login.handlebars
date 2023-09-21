@@ -1,59 +1,72 @@
+{{!-- Main spacing container --}}
 <div class = "container">
-<div class="columns">
-    <div class="column">
-<div class = "card">
-    <div class="card-content">
-        <p class="title">Login</p>
-        <form id="login-form">
-<div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" id="login-username" placeholder="Username">
-    <span class="icon is-small is-left">
-      <i class="fas fa-user"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="password" id ="login-password" placeholder="Password">
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
-<button class="button is-link" id ="login" type="submit">Login</button>
-</form>
-</div>
-</div>
-</div>
 
-<div class="column">
-<div class = "card">
-    <div class ="card-content">
-        <p class="title">Sign Up</p>
-        <form id="signup-form">
-<div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" id="signup-username" placeholder="Username">
-    <span class="icon is-small is-left">
-      <i class="fas fa-user"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="password" id="signup-password" placeholder="Password">
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
-<button class="button is-link" id ="signup" type="submit">Sign Up</button>
-</form>
-</div>
-</div>
-</div>
-</div>
+    <div class="columns">
+
+        {{!-- Login Form --}}
+        <div class="column">
+            <div class = "card">
+                <div class="card-content">
+                    <p class="title">Login</p>
+                    {{!-- Form --}}
+                        <form id="login-form">
+                            {{!-- Username --}}
+                            <div class="field">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input class="input" id="login-username" placeholder="Username">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </p>
+                            </div>
+                            {{!-- Password --}}
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input" type="password" id ="login-password" placeholder="Password">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </p>
+                            </div>
+                            {{!-- Submit Login --}}
+                            <button class="button is-link" id ="login" type="submit">Login</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+
+        {{!-- Signup Form --}}
+        <div class="column">
+            <div class = "card">
+                <div class ="card-content">
+                    <p class="title">Sign Up</p>
+                    {{!-- Form --}}
+                    <form id="signup-form">
+                        {{!-- Username --}}
+                        <div class="field">
+                            <p class="control has-icons-left has-icons-right">
+                                <input class="input" id="signup-username" placeholder="Username">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </p>
+                        </div>
+                        {{!-- Password --}}
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input" type="password" id="signup-password" placeholder="Password">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </p>
+                        </div>
+                        {{!-- Submit Signup --}}
+                        <button class="button is-link" id ="signup" type="submit">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src ="/js/login.js"></script>
