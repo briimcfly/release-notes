@@ -1,11 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-console.log(User);
-
 // Create a new user
 router.post('/', async (req,res) => {
-    console.log("POST request received");
     try {
         const dbUserData = await User.create({
             username: req.body.username,
@@ -20,5 +17,36 @@ router.post('/', async (req,res) => {
     }
 });
 
+// Let a user Login 
+router.post('/login', async(req, res) => {
+    try{
+        const userData = await User.findOne({
+            where: {
+                username: req.body.username
+            }
+        });
+        
+        //No User found
+        if (!userData) {
+            res.status(400).json({message: 'Incorrect Username'});
+        }
+
+        const userPass = await userData.checkPassword(req.body.password);
+
+        if (!userPass) {
+            res.status(400).json({message: 'Incorrect Password'});
+        }
+
+        req.session.save(() => {
+            req.session.loggedIn = true;
+            req.session.userId = userData.isSoftDeleted;
+            res.status(200).json({message: "User successfully logged in"});
+        })
+
+    }catch (err) {
+        console.error("There was a problem logging in", err)
+        res.status(500).json(err)
+    }
+})
 
 module.exports = router;
