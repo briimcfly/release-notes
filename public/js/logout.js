@@ -1,3 +1,4 @@
+//User Logout 
 const logoutHandle = async() => {
     console.log('Logout button was clicked');
     const response = await fetch("/api/users/logout", {
@@ -12,4 +13,5 @@ const logoutHandle = async() => {
     }
 }
 
+//Logout handler click event 
 document.querySelector("#logout").addEventListener("click", logoutHandle);
