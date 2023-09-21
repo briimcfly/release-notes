@@ -30,12 +30,12 @@ router.post('/login', async(req, res) => {
     }catch (err) {
         console.error("There was an issue finding Username", err)
         return res.status(500).json({message: "Internal Server Error"})
-    }
+    };
 
     //Bad Username 
     if (!userData) {
         return res.status(400).json({message: 'Incorrect Username or Password'});
-    }
+    };
 
     //User Password 
     let userPass;
@@ -45,12 +45,12 @@ router.post('/login', async(req, res) => {
     } catch(err){
         console.error("There was an issue checking password", err)
         return res.status(500).json({message: "Internal Server Error"});
-    }
+    };
 
     //Bad password
     if (!userPass) {
         return res.status(400).json({message: 'Incorrect Username or Password'});
-    }
+    };
 
     //Save Session
     req.session.save(err => {
@@ -61,6 +61,13 @@ router.post('/login', async(req, res) => {
         req.session.loggedIn = true;
         res.status(200).json({message: "User successfully logged in"})
     }); 
+});
+
+//Let a user log out 
+router.post("/logout", async (req, res) => {
+    req.session.destroy(() => {
+        res.status(204).end();
+    });
 });
 
 module.exports = router;
