@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="has-background-light">
+<html lang="en" class="has-background-white">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bryan's Tech Blog</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+  {{!-- Font Awesome --}}
   <link rel="stylesheet" href="https://kit.fontawesome.com/1d33aad484.css" crossorigin="anonymous">
   </head>
+
+{{!-- Navigation --}}
 <nav class="navbar mb-6" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="https://bulma.io">
@@ -16,6 +20,7 @@
 
     <div class ="navbar-end">
     <div class="navbar-item">
+      {{!-- Logged In Nav Logic --}}
       {{#if loggedIn}}
       <a href="/login">Logout</a>
     {{else}}
@@ -25,6 +30,8 @@
     </div>
   </div>
 </nav>
+
+{{!-- Main Page Body --}}
 <body>
     {{{ body }}}
   <footer>

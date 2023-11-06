@@ -12,6 +12,13 @@ const sequelize = require('./config/connection');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+//Mime type issues with CSS
+app.use('/css/styles.css', express.static(path.join(__dirname, 'public/css/styles.css'), {
+    setHeaders: function (res, path) {
+      res.set('Content-Type', 'text/css');
+    }
+  }));
+
 const sess = {
     secret: 'Super secret secret',
     cookie: {

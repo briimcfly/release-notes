@@ -1,19 +1,33 @@
-{{#each posts as |post|}}
-<section class="section">
-  <h1 class="title">{{post.title}}</h1>
-  <p class="subtitle">
-    <i class="fa-solid fa-circle-user"></i> {{post.user.username}}
-  </p>
-  <p>{{post.content}}</p>
-</section>
- {{#each comments as |comment|}}
- <div class="card">
-  <div class="card-content">
-    <div class="content">
-     {{comment.text}}  
-     <p> <i class="fa-solid fa-circle-user"></i>  {{comment.user.username}}</p>  
-    </div>
+<div class="container">
+  {{#each posts as |post|}}
+  <article class="message is-medium">
+    <div class="message-header">
+      <p>{{post.title}}  <br><small>by: <i class="fa-solid fa-circle-user"></i>  {{post.user.username}}</small></p>
   </div>
+  <div class="message-body">
+    <div class="mb-5 divider">
+  {{post.content}}
+  </div>
+          <!-- Display comments title with count -->
+      {{#if post.comments}}
+        <p>Comments: {{post.comments.length}}</p>
+        {{#each post.comments as |comment|}}
+        <div class="box">
+{{comment.text}}<br><small><p> <i class="fa-solid fa-circle-user"></i> {{comment.user.username}}</p></small>
+        </div>
+          {{!-- <div class="card">
+            <div class="card-content">
+              <div class="content">
+                {{comment.text}}
+                <p> <i class="fa-solid fa-circle-user"></i> {{comment.user.username}}</p>
+              </div>
+            </div>
+          </div> --}}
+        {{/each}}
+      {{/if}}
+  </div>
+  </article>
+
+  {{/each}}
 </div>
- {{/each}}
-{{/each}}
+<!-- End Container -->
