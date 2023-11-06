@@ -1,11 +1,13 @@
 module.exports = {
-    format_time: (date) => {
-      return date.toLocaleTimeString();
-    },
-    format_date: (date) => {
-      return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${
-        new Date(date).getFullYear() + 5
-      }`;
-    },
-  };
-  
+  format_date: (date) => {
+    // Create an array of month names
+    const monthNames = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+    // Create a new date object from the provided date
+    const d = new Date(date);
+    // Return the formatted date
+    return `${monthNames[d.getMonth()]} ${d.getDate()} ${d.getFullYear()}`;
+  },
+};
